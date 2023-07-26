@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +15,6 @@
                 <a href="notifications.html"><li>Notifications</li></a>
                 <a href="add.html"><li>Add Subscriber</li></a>
                 <a href="subscribers.html"><li>Subcsribers</li></a>
-               
-           
-            
             
             </ul>
             
@@ -26,9 +24,27 @@
                 </div>
                 <div class="three">
                
-                    
-                    </div>
-                        </div>
+                <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <a class="dashboard-stat bg-primary" href="manage-students.php">
+<?php 
+$sql1 ="SELECT * from subscribers ";
+$query1 = $con -> prepare($sql1);
+$query1->execute();
+$results1=$query1->fetchAll(PDO::FETCH_OBJ);
+$totalstudents=$query1->rowCount();
+?>
+
+                                            <span class="number counter"><?php echo htmlentities($totalstudents);?></span>
+                                            <span class="name">SUBSCRIBERS.</span>
+                                            <span class="bg-icon"><i class="fa fa-users"></i></span>
+                                        </a>
+                                        <!-- /.dashboard-stat -->
+                                    </div>
+                
+                </div>
+
                         <div class="five">
     
            
