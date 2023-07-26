@@ -1,0 +1,87 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    height:450px ;
+    width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.361);
+    
+    
+  }
+  .user{
+    position: absolute;
+    top: 510px;
+    left: 570px;
+    color: #4CAF50;
+      }
+      h3{
+        color:rgb(41, 103, 248);
+        text-decoration: none;
+      }
+      h3 a{
+        text-decoration: none;
+      }
+  
+  
+  
+  h1 {
+    text-align: center;
+    margin-top: 0;
+    padding-top: 160px;
+    color: #4CAF50;
+    padding-right: 12px;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 90%;
+    height: 30px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  button[type="submit"] {
+    width: 95%;
+    
+    padding: 20px;
+    padding-top: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: large;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  .PITss{
+    color: green;
+    position: absolute;
+    left: 550px;
+    bottom:  420px;
+    font-size: 50px;
+    font-family:Brush Script MT;
+}
+.PITz{
+    color: rgb(41, 103, 248);
+    position: absolute;
+    left: 650px;
+    bottom:  420px;
+    font-size: 50px;
+    font-family:Brush Script MT;
+}
+.image{
+    position: absolute;
+    left: 600px;
+    top: 210px; 
+}

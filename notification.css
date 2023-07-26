@@ -1,0 +1,306 @@
+body{
+    height: 2000px;
+    
+}
+
+.parent {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid green;
+    justify-content: space-between;
+   
+  }
+
+  .one {
+    background-color: rgb(41, 103, 248);
+    width: 100%;
+    height: 70px;
+    flex-grow: 1;
+    border-radius: 100px;
+  }
+  .ALERT{
+    color: rgb(239, 249, 239);
+    position: absolute;
+    left: 180px;
+}
+
+  .two {
+     background-color: #f2f2f2;
+    width: 100%;
+    flex-grow: 1;
+  }
+  .form-title {
+    color: #4caf50;
+    font-size: 40px;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 20px;
+  }
+
+  .three {
+    background-color: black;
+    width: 100%;
+    flex-grow: 1;
+  }
+
+.list{
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    position: absolute;
+    left: 420px;
+    bottom: 550px;
+    
+  
+}
+.list li{
+    padding: 20px;
+    color: white;
+
+}
+
+.list a{
+    color: white;
+    text-decoration: none;
+}
+.list a:hover{
+    color: white;
+    font-size: larger;
+    text-decoration: rgb(63, 169, 63);
+}
+
+
+
+.press{
+    color:rgb(41, 103, 248);
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: white;
+    position: absolute;
+    left: 1100px;
+top: 20px;
+    margin-left: 4px ;
+    font-size: larger;
+    border-style: none;
+}
+.pres{
+    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    background-color:rgb(4, 142, 4);
+    position: absolute;
+    left: 990px;
+    font-size: large;
+top: 20px;
+    margin-left: 4px ;
+    border-style: none;
+}
+
+.press:hover{
+    transition: 1s;
+    color:white;
+    background-color: green;
+}
+
+.pres:hover{
+    transition: 1s;
+    color:green;
+    background-color: white;
+}
+.pic{
+    padding-top: 20px;
+   border-radius: 20px;
+}
+.overlay{
+    background-color: rgba(0, 0, 0, 0.646);
+    width: 100%;
+    height: 550px;
+    position: absolute;
+    top: 100px;
+    border-radius: 20px;
+}
+.text{
+    color:rgb(41, 103, 248);
+    font-family: stonhenge;
+    text-align: center;
+    padding-top: 120px;
+    font-size: 80px;
+}
+.texts{
+    color:white;
+    font-family: stonhenge;
+    text-align: center;
+    position: absolute;
+    left: 420px;
+    top: 250px; ;
+    font-size: 40px;
+}
+.image{
+    position: absolute;
+    left: 600px;
+    top: 100px; ;
+}
+.images{
+    position: absolute;
+    top: -50px;
+}
+.make{
+    
+    position: absolute;
+    left: 40px;
+}
+
+.contact{
+    color: rgba(41, 103, 248, 0.582);
+
+}
+.mu-our-teacher-social{
+    padding: 20px;
+}
+.make{
+    
+    position: absolute;
+    left: 40px;
+}
+.more{
+    position: absolute;
+    top: 70px;
+    left: 600px;
+
+}
+.move{
+    font-size: larger;
+}
+.aboutt{
+    position: absolute;
+    bottom:  220px;
+    left: 2%;
+   color:  rgb(41, 103, 248);
+    
+}
+.foot{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    text-decoration: none;
+   
+}
+.foot li{
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.71);
+
+}
+
+.foot a{
+    color: rgb(235, 236, 235);
+    text-decoration: none;
+}
+.foot a:hover{
+    color: rgb(241, 241, 241);
+    font-size: larger;
+    text-decoration: rgb(63, 169, 63);
+}
+
+
+.foots{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    text-decoration: none;
+   
+}
+.foots li{
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.71);
+
+}
+
+.foots a{
+    color: rgb(235, 236, 235);
+    text-decoration: none;
+}
+.foots a:hover{
+    color: rgb(241, 241, 241);
+    font-size: larger;
+    text-decoration: rgb(63, 169, 63);
+}
+.display{
+    display: flex;
+    flex-direction: row;
+    
+}
+.display li{
+    padding: 10px;
+}
+.PIT{
+    color: rgb(8, 244, 8);
+    position: absolute;
+    left: 120px;
+}
+.PITs{
+    color: rgb(239, 249, 239);
+    position: absolute;
+    left: 240px;
+}
+
+.PITss{
+    color: green;
+    position: absolute;
+    left: 400px;
+    top: 10px;
+    font-size: 60px;
+}
+.PITz{
+    color: rgb(239, 249, 239);
+    position: absolute;
+    left: 600px;
+    top: 10px;
+    font-size: 60px;
+
+
+
+}
+.PITsX{
+    color: white;
+    padding-left: 170px;
+}
+#pin{
+    position: absolute;
+    left: 750px;
+}
+.alert{
+    z-index: 999;
+}
+.PIT{
+    color: rgb(8, 244, 8);
+    position: absolute;
+    left: 120px;
+}
+.PITs{
+    color: rgb(239, 249, 239);
+    position: absolute;
+    left: 240px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #f9f9f9;
+}
+.acc{
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
