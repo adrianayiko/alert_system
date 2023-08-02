@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     <title>notifications</title>
     <link rel="stylesheet" href="alert.css">
     <style>
@@ -16,15 +20,14 @@
         <a href="home.php"><li id="about">Home</li></a>
         <a href="notifications.php"><li>Notifications</li></a>
         <a href="about.php"><li>About Us</li></a>
-        <a href="contacts.php"><li>Contacts</li></a>
+        <a href="subscriber.php"><li>Subscribers</li></a>
         <li ><a href="#" onclick="promptPassword()">Admin Panel</a></li>
        
         
         
         </ul>
         
-        <button class="press">log out</button>
-        <button class="pres">StopAlarm</button>
+        <button class="press"><a href="logout.php">Log Out</a></button>
         <img src="pics/edit-removebg-preview.png" width="70px" height="70px" class="make"><span><h1 class="PIT"> E -</h1> <h1 class="PITsX">ALERT  </h1</span>
             
 </div>
@@ -32,26 +35,28 @@
 <h1 class="form-title">REAL-TIME NOTIFICATIONS</h1>
 
 </div>
-<?php include ("now.php"); ?>
+<!-- <?php include ("now.php"); 
+  // echo "Notificatio: " . $dateTime;
+?> -->
 <div class="acc">
-      <table border="2">
-              <thead>
-                  <tr>
-                      <th>Bed Number</th>
-                      <th>Room Number</th>
-                      <th>Data</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <?php foreach ($data as $row): ?>
-                      <tr>
-                          <td><?php echo $row['bedNo']; ?></td>
-                          <td><?php echo $row['roomNo']; ?></td>
-                          <td><?php echo $row['Date']; ?></td>
-                      </tr>
-                  <?php endforeach; ?>
-              </tbody>
-          </table>
+    <table border="2">
+        <thead>
+        <tr>
+            <th>Bed Number</th>
+            <th>Room Number</th>
+            <th>Data</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($data as $row): ?>
+            <tr>
+                <td><?php echo $row['bedNo']; ?></td>
+                <td><?php echo $row['roomNo']; ?></td>
+                <td><?php echo $row['Date']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
 </div>
 
 <div class="three">    
@@ -59,9 +64,9 @@
          <li>
              <h1 class="contact">Contacts</h1>
        <ul class="foot">
-            <a href="http://"><li>ealert@gmail.com</li></a>
+            <a href="http://"><li>e-alert@gmail.com</li></a>
             <a href="http://"><li>+256-786962570</li></a>
-            <a href="http://"><li>@ealert.yahoo</li></a>
+            <a href="http://"><li>@e-alert.yahoo</li></a>
             <a href="http://"><li></li></a>
             <a href="http://"><li></li></a>
        </ul>
@@ -69,11 +74,11 @@
      <li>
          <h1 class="contact">Contacts</h1>
        <ul class="foots">
-         <a href="home.html"><li id="about">Home</li></a>
-         <a href="notifications.html"><li>Notifications</li></a>
-         <a href="about.html"><li>About Us</li></a>
-         <a href="contacts.html"><li>Contacts</li></a>
-         <a href="alert.html"><li><img src="pics/notification-14159-removebg-preview.png" width="30px" height="30px"> </li></a>
+         <a href="home.php"><li id="about">Home</li></a>
+         <a href="notifications.php"><li>Notifications</li></a>
+         <a href="about.php"><li>About Us</li></a>
+         <a href="subscriber.php"><li>Contacts</li></a>
+         <a href="#"><li><img src="pics/notification-14159-removebg-preview.png" width="30px" height="30px"> </li></a>
           
        </ul>
        </li>
@@ -97,18 +102,68 @@
 
  </div>
 
-<script>
-    function promptPassword() {
-      var password = prompt("Enter the password for Admin Panel:");
+ <script>
+  let lastCheck = new Date().toISOString();
+
+  function fetchNotifications() {
+  let xhr = new XMLHttpRequest();
+  xhr.open('GET', `now.php?lastCheck=${lastCheck}`, true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      let data = JSON.parse(xhr.responseText);
       
-      if (password === "1029") {
-        window.location.href = "admin.php"; // Replace with the actual URL of the protected admin page
+      if(data.length > 0) {
+        // Configure Toastr for sticky notifications
+        toastr.options.timeOut = 0; // How long the toast will display without user interaction
+        toastr.options.extendedTimeOut = 0; // How long the toast will display after a user hovers over it
+
+        let toastrMethods = [toastr.success, toastr.info, toastr.warning, toastr.error];
+        let index = 0;
+
+data.forEach(notification => {
+  toastr.options.onclick = function() { updateStatus(notification.id); };  // Call updateStatus when a notification is clicked
+  toastrMethods[index](`ALERT MEDICAL EMERGENCY!!<br> Attend to Patient in :<br>Room No: ${notification.roomNo}<br>Bed No: ${notification.bedNo}<br>`, '', { allowHtml: true });
+
+  // Increment the index and reset it to 0 if it's greater than the number of toastrMethods
+  index = (index + 1) % toastrMethods.length;
+});
+
+
+        lastCheck = new Date().toISOString();
       } else {
-        alert("Incorrect password. Please try again.");
+        // toastr.error('No new notifications');
       }
     }
+  };
+  xhr.send();
+}
 
 
-  </script>
+
+  function updateStatus(id) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', `update_status.php?id=${id}`, true);
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        toastr.clear();  // Remove all Toastr notifications
+        fetchNotifications();  // Fetch new notifications again
+      }
+    };
+    xhr.send();
+  }
+
+  setInterval(fetchNotifications, 2000);  // Check for new notifications every 2 seconds
+
+  function promptPassword() {
+    var password = prompt("Enter the password for Admin Panel:");
+    
+    if (password === "1029") {
+      window.location.href = "admini.php"; // Replace with the actual URL of the protected admin page
+    } else {
+      alert("Incorrect password. Please try again.");
+    }
+  }
+</script>
+
 </body>
 </html>

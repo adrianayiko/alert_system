@@ -1,4 +1,5 @@
-
+<?php include ("connection.php");
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,46 +7,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <div class="parent">
         <div class="two">
             <ul class="list">
-                <a href="home.html"><li id="about">Home</li></a>
-                <a href="notifications.html"><li>Notifications</li></a>
+                <a href="home.php"><li id="about">Home</li></a>
+                <a href="notifications.php"><li>Notifications</li></a>
                 <a href="add.html"><li>Add Subscriber</li></a>
-                <a href="subscribers.html"><li>Subcsribers</li></a>
+                <a href="subscriber.php"><li>Subcsribers</li></a>
             
             </ul>
             
             <button class="press">log out</button>
-            <button class="pres">StopAlarm</button>
+            <!-- <button class="pres">StopAlarm</button> -->
             <img src="pics/edit-removebg-preview.png" width="70px" height="70px" class="make"><span><h1 class="PIT"> E-</h1> <h1 class="PITs"> ALERT </h1></span>
                 </div>
                 <div class="three">
-               
-                <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <a class="dashboard-stat bg-primary" href="manage-students.php">
-<?php 
-$sql1 ="SELECT * from subscribers ";
-$query1 = $con -> prepare($sql1);
-$query1->execute();
-$results1=$query1->fetchAll(PDO::FETCH_OBJ);
-$totalstudents=$query1->rowCount();
+                    <div class="mark">
+                        <div class="sidebar">
+                            <div class="over">
+
+                            <div style="display: flex; justify-content: center;">
+  <img src="pics/admin.png" style="width: 200px; height: 200px;" class="admins" style="display: block; margin: 0 auto;">
+</div>
+<div style="display: flex; justify-content: center;">
+    <h1 style="font-size: px;">Admin</h1>
+</div>
+
+
+
+<div class="lines" style="display: flex; justify-content: center;">
+
+    <ul>
+        <li>
+            <p>DASHBOARD</p>
+        </li>
+ 
+        <li>
+            <p>SETTINGS</p>
+        </li>
+        <li>
+            <p>SUBSCRIBERS</p>
+        </li>
+        <li>
+            <p>LOG OUT</p>
+        </li>
+    </ul>
+</div>
+
+
+</div>
+
+                        </div>
+                        <div class="content">
+                        <div class="row">
+                                    <div class="container">
+        <div class="column">
+            <a href="notifications.php">
+                <div class="blue card">
+                    <img src="pics/notification.png" alt="Staff Icon">
+                    <h2>NOTIFICATIONS</h2>
+                    <p>
+                    <?php 
+include ("connection.php");
+// SQL QUERY
+$query = "SELECT  * FROM `notifications` WHERE DATE(Date) = CURDATE();";
+// FETCHING DATA FROM DATABASE
+$result = mysqli_query($con, $query);
+$num = strval( mysqli_num_rows($result));
 ?>
-
-                                            <span class="number counter"><?php echo htmlentities($totalstudents);?></span>
-                                            <span class="name">SUBSCRIBERS.</span>
-                                            <span class="bg-icon"><i class="fa fa-users"></i></span>
-                                        </a>
-                                        <!-- /.dashboard-stat -->
-                                    </div>
-                
+                                                <span class="label">Notifications:</span>
+                                                <span class="value" id="totalOrders"><?php echo htmlentities($num);?></span>
+                    </p>
                 </div>
-
-                        <div class="five">
+            </a>
+            <a href="subscribers.php">
+                    <div class="green card">
+                    <img src= "pics/subscriber.png"  >
+                    <h2>SUBSCRIBERS</h2>
+                    <p>
+                    <?php 
+include ("connection.php");
+// SQL QUERY
+$query = "SELECT  * FROM `subscribers`;";
+// FETCHING DATA FROM DATABASE
+$result1 = mysqli_query($con, $query);
+$num1 = strval( mysqli_num_rows($result1));
+?>
+                                                <span class="label">Subscribers:</span>
+                                                <span class="value" id="totalOrders"><?php echo htmlentities($num1);?></span>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="column">
+            <a href="other_page.html">
+                <div class="grey card">
+                    <img src="pics/doctor.png" alt="Other Icon">
+                    <h2>STAFF </h2>
+                    <p><?php 
+include ("connection.php");
+// SQL QUERY
+$query = "SELECT  * FROM `staff`;";
+// FETCHING DATA FROM DATABASE
+$result1 = mysqli_query($con, $query);
+$num1 = strval( mysqli_num_rows($result1));
+?>
+                                                <span class="label">Staff:</span>
+                                                <span class="value" id="totalOrders"><?php echo htmlentities($num1);?></span></p>
+                </div>
+            </a>
+        </div>
+    </div>
+                        </div>
+                    </div>
+                
+               
+                <div >
+                                
+    <div class ="five">
     
            
           

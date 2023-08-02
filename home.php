@@ -31,15 +31,13 @@ session_start();
 <a href="home.php"><li id="about">Home</li></a>
 <a href="notifications.php"><li>Notifications</li></a>
 <a href="about.php"><li>About Us</li></a>
-<a href="contacts.php"><li>Contacts</li></a>
 
 
 <li ><a href="#" onclick="promptPassword()">Admin Panel</a></li>
 
 </ul>
 
-<button class="press" onclick="logout()">Log Out</button>
-<button class="pres">StopAlarm</button>
+<button class="press"><a href="logout.php">Log Out</a></button>
 <img src="pics/edit-removebg-preview.png" width="70px" height="70px" class="make" ><span><h1 class="PIT"> E - ALERT </h1></span>
     </div>
 
@@ -76,9 +74,9 @@ session_start();
         <li>
             <h1 class="contact">Contacts</h1>
       <ul class="foot">
-           <a href="http://"><li>> pearlhandsmed@gmail.com</li></a>
+           <a href="http://"><li>> e-alert@gmail.com</li></a>
            <a href="http://"><li>> +256-786962570</li></a>
-           <a href="http://"><li>> @pearlhands.yahoo</li></a>
+           <a href="http://"><li>> @e-alert.yahoo</li></a>
            <a href="http://"><li></li></a>
            <a href="http://"><li></li></a>
       </ul>
@@ -86,11 +84,11 @@ session_start();
     <li>
         <h1 class="contact">Contacts</h1>
       <ul class="foots">
-        <a href="home.html"><li id="about">Home</li></a>
-        <a href="notifications.html"><li>Notifications</li></a>
-        <a href="about.html"><li>About Us</li></a>
-        <a href="contacts.html"><li>Contacts</li></a>
-        <a href="alert.html"><li><img src="pics/notification-14159-removebg-preview.png" width="30px" height="30px"> </li></a>
+        <a href="home.php"><li id="about">Home</li></a>
+        <a href="notifications.php"><li>Notifications</li></a>
+        <a href="about.php"><li>About Us</li></a>
+        <a href="subscriber.php"><li>Contacts</li></a>
+        <a href="#"><li><img src="pics/notification-14159-removebg-preview.png" width="30px" height="30px"> </li></a>
          
       </ul>
       </li>
@@ -132,7 +130,7 @@ session_start();
       var password = prompt("Enter the password for Admin Panel:");
       
       if (password === "1029") {
-        window.location.href = "admin.php"; // Replace with the actual URL of the protected admin page
+        window.location.href = "admini.php"; // Replace with the actual URL of the protected admin page
       } else {
         alert("Incorrect password. Please try again.");
       }

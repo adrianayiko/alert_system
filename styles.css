@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 8px;
+    border-radius: 10px;
+    max-width: 300px;
+    text-align: center;
+    color: #fff;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.grey {
+    background-color: grey;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+.mark {
+    
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Adjust the ratio as needed */
+    grid-gap: 20px; /* Gap between the columns */
+  }
+  
+.sidebar {
+    flex:1 ;
+    /* Additional styles for the sidebar */
+  }
+  
+  .content {
+    padding-top: 20px;
+    flex: 2;
+    /* Additional styles for the main content */
+  }
+  

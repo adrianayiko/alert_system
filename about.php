@@ -13,15 +13,14 @@
         <a href="home.php"><li id="about">Home</li></a>
         <a href="notifications.php"><li>Notifications</li></a>
         <a href="about.php"><li>About Us</li></a>
-        <a href="contacts.php"><li>Contacts</li></a>
+        <a href="subscriber.php"><li>Contacts</li></a>
         <li ><a href="" onclick="promptPassword()">Admin Panel</a></li>
         
         
         
         </ul>
         
-        <button class="press">log out</button>
-        <button class="pres">StopAlarm</button>
+        <button class="press"><a href="logout.php">Log Out</a></button>
         <img src="pics/edit-removebg-preview.png" width="70px" height="70px" class="make"><span><h1 class="PIT"> E - ALERT </h1></span>
             </div>
             <div class="three">
@@ -98,7 +97,7 @@
                           var password = prompt("Enter the password for Admin Panel:");
                           
                           if (password === "1029") {
-                            window.location.href = "admin.php"; // Replace with the actual URL of the protected admin page
+                            window.location.href = "admini.php"; // Replace with the actual URL of the protected admin page
                           } else {
                             alert("Incorrect password. Please try again.");
                           }
